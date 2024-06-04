@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href="https://fonts.cdnfonts.com/css/cormorant-garamond" rel="stylesheet">
+    <link href="https://db.onlinewebfonts.com/c/029177df870cce2b384f0610a6e1f82a?family=Montserrat+Light" rel="stylesheet">
+    <link rel="stylesheet" href="../public/css/styles.css"> -->
+
+    <link rel="stylesheet" type="text/css" href="data:text/css;base64,{{ bootstrap }}"/>
+    <style>
+       
+        @font-face {
+            font-family: cormorant garamond;
+            font-style: normal;
+            font-weight: 600;
+            src: local('Cormorant Garamond'), url(data:application/font-woff;charset=utf-8;base64,{{CormorantGaramondSemiBold}}) format('woff')
+        }
+
+        @font-face{
+            font-family: "Montserrat Light";
+            src: url(data:application/font-woff;charset=utf-8;base64,{{montserrat}}) format("woff");
+            font-weight:normal;
+            font-style:normal;
+            font-display:swap;
+        }
+
+        
+    </style>
+    <meta charset="utf-8">
+</head>
+<body>
+    <style>
+        body{
+            width: 8.5in;
+        }
+        p, pre{
+            font-family: 'Times New Roman',serif;
+            font-size: 12.52pt;
+            /* text-align: justify; */
+        }
+        span, li{
+            font-family: 'Times New Roman',serif;
+            font-size: 12.52pt;
+        }		
+        .tab4{
+            tab-size: 8;
+        }
+        .subheaders{
+            font-family: 'Times New Roman',serif;
+            font-size: 15.020pt;
+        }
+        .bordered {
+            border-right: 1px solid black;
+            border-left: 1px solid black;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+        }
+        .bordered-left{
+            border-left: 1px solid black;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+        }
+        .bordered-right{
+            border-right: 1px solid black;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+        }
+		.squared{
+			height: 45px;
+			width: 850px;
+		}
+        .squared12{
+            height: 75px;
+			width: 850px;
+        }
+        .squared2{
+            height: 120px;
+            width: 850px;
+        }
+		.lowered{
+			position: relative; 
+			top: 22px;
+            padding-bottom: 3px;
+		}
+        .less-lowered{
+			position: relative; 
+			top: 5px;
+            padding-bottom: 3px;
+		}
+        .row{
+            page-break-inside: avoid; /* Prevent breaking inside the grid */
+        }
+        .no-height{
+            padding-top: 10px;
+            min-height: 70px;
+            width: 850px;
+        }
+        .limit-height{
+            min-height: 45px;
+            max-height: 70px;
+            width: 850px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+        }
+        .flex-col{
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+	<div class="container-fluid" id="pdf-content">
+        <div style="display: flex; flex-direction: row;">
+			<img style="height: 160px;" src="data:image/png;base64,{{ imageSrc }}"/>  
+            <div style="display: flex; flex-direction: column; float: center; text-align: left; margin-top: 50px">
+                <div><h5 style="font-family:'Cormorant Garamond'; font-weight: 500; font-weight: bold; font-size: 24pt;">GOVERNMENT OF PUERTO RICO</h5></div>
+                <div><h5 style="font-family:'Montserrat Light'; font-weight: 500; font-weight: bold; font-size: 14pt;">OFFICE OF THE COMMISIONER OF INSURANCE</h5></div>
+            </div>
+        </div>
+        
+        <div class="text-center subheaders mb-2"><b>Individual and Incorporated Provider Credentialing Application</b></div>
+        <div>
+            <p style="text-align: justify;">To facilitate the collection of data from health service providers during the credentialing process, and to create an updated Provider Directory, the Puerto Rico Insurance Commissioner's Office requests that all providers complete the Individual and/or Provider Credentialing Application, and an authentic and legible copy of the documents detailed in the <b>Required Credentials and Documents</b> List.  The information required to complete the Individual and/or Incorporated Provider Credentialing Application is listed in each of the sections provided.  All the information stated in the Individual and/or Incorporated Provider Credentialing Application must be current.  If your application cannot be completed due to inaccurate information, you will be contacted by the insurance companies working on your credentialing status. For your records, make sure to keep copies of any supporting documents.</p>
+            <span><b>I.&emsp;&emsp; Individual Primary Practice Profile:</b> Mandatory Fields</span>
+            <p style="text-align: justify;">Please complete the information requested in each of the provided fields. Official documents considered as part of the list of credentials specified in the <b>Required Credentials and Documents List</b>, must be attached in the same order as the application</p>
+        </div>
+        <div style="position: relative;left: 10px;">
+            <div class="row squared bordered" >
+                <div class="col">
+					<span class="lowered">Provider Name (Last, First, Middle):    {{FormSections.IndPrimaryPracticeProfile1.providerLastName}}, {{FormSections.IndPrimaryPracticeProfile1.providerFirstName}}, {{FormSections.IndPrimaryPracticeProfile1.providerMiddleName}}
+					</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Date of Birth (month/day/year): {{FormSections.IndPrimaryPracticeProfile1.provDateOfBirth}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Gender (Male / Female / Unspecified): {{FormSections.IndPrimaryPracticeProfile1.provGender}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Rendering NPI Number/ Individual NPI Number: {{FormSections.IndPrimaryPracticeProfile1.provIRenderingNpi}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Social Security Number: {{FormSections.IndPrimaryPracticeProfile1.provSSN}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Individual Tax ID Number (If apply): {{FormSections.IndPrimaryPracticeProfile1.provIndivTaxId}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Medical License Number: {{FormSections.IndPrimaryPracticeProfile1.provIndivMedLic}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Subspecialty (if apply): {{FormSections.IndPrimaryPracticeProfile1.provIndSubSpecialty}}</span>
+                </div>
+			</div>
+			<div class="row limit-height bordered">
+                <div class="col-4">
+                    <span class="lowered">Individual Practice Physical Address: </span>
+                </div>
+                <div class="col-8" style="line-height: 1.2;">
+                    <p>{{FormSections.IndPrimaryPracticeProfile1.provIPhysicalAddress}}</p>
+                </div>
+			</div>
+			<div class="row limit-height bordered">
+                <div class="col-4">
+                    <span class="lowered">Individual Practice Mailing Address: </span>
+                </div>
+                <div class="col-8" style="line-height: 1.2;">
+                    <p>{{FormSections.IndPrimaryPracticeProfile1.provIndMailAddress}}</p>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Office Phone Number: {{FormSections.IndPrimaryPracticeProfile1.provIndivOfficePhone}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Email: {{FormSections.IndPrimaryPracticeProfile1.provIndivEmail}}</span>
+                </div>
+			</div>
+        </div>
+        <footer >
+            <div class="text-center">
+                <hr size="1" width="100%" color="black">
+                <p class="text-center" style="font-family: Montserrat Light; font-size: 10pt;">World Plaza Building, 268 Luis Muñoz Rivera Ave., San Juan, PR 00918
+                <br>
+                787-304-8686  787-273-6082 www.ocs.gov</p>
+            </div>
+        </footer>
+        <div style="margin-top: 80px;">
+            <hr size="1" width="100%" color="black">
+            <span><b>II.&emsp;&emsp; Incorporated Practice Profile:</b> Mandatory Fields, if apply.</span>
+            <p class="mt-3 mb-4" style="text-align: justify;">Please complete the information requested in each of the provided fields. Official documents considered as part of the list of credentials specified in the <b>Required Credentials and Documents List</b>, must be attached in the same order as the application. For your records, make sure to keep copies of any supporting documents.</p>
+        </div>
+        <div style="position: relative;left: 10px;">
+            <div class="row squared bordered" >
+                <div class="col">
+					<span class="lowered">Corporate Practice Name: {{FormSections.CorporatePracticeProfile2.corpPracticeName}}
+					</span>
+                </div>
+			</div>
+            <div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Incorporation Effective Date: {{FormSections.CorporatePracticeProfile2.corpIncEffectiveDate}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Rendering NPI Number: {{FormSections.CorporatePracticeProfile2.corpNPINumber}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Corporate Tax ID Number: {{FormSections.CorporatePracticeProfile2.corpTaxIdNumber}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Provider Specialty (Please specify the specialty: Primary Care / or Specialty Care): {{FormSections.CorporatePracticeProfile2.corpProvSpecialty}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Subspecialty (if apply): {{FormSections.CorporatePracticeProfile2.corpProvSubSpecialty}}</span>
+                </div>
+			</div>
+			<div class="row limit-height bordered">
+                <div class="col-4">
+                    <span class="lowered">Corporate Practice Physical Address: </span>
+                </div>
+                <div class="col-8" style="line-height: 1.2;">
+                    <p>{{FormSections.CorporatePracticeProfile2.corpPracticePhys}}</p>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Medicaid ID for this Location: {{FormSections.CorporatePracticeProfile2.corpProvMedicaidId}}</span>
+                </div>
+			</div>
+			<div class="row limit-height bordered">
+                <div class="col-4">
+                    <span class="lowered">Corporate Practice Mailing Address: </span>
+                </div>
+                <div class="col-8" style="line-height: 1.2;">
+                    <p>{{FormSections.CorporatePracticeProfile2.corpProvMailAddress}}</p>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Corporate Entity Contact Phone Number: {{FormSections.CorporatePracticeProfile2.corpProvPhoneNumber}}</span>
+                </div>
+			</div>
+			<div class="row limit-height bordered">
+                <div class="col-4">
+                    <span class="lowered">Employer ID Physical Address: </span>
+                </div>
+                <div class="col-8" style="line-height: 1.2;">
+                    <p>{{FormSections.CorporatePracticeProfile2.corpEmployerIdPhys}}</p>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Entity Type: {{FormSections.CorporatePracticeProfile2.corpEntityType}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">W-9: {{FormSections.CorporatePracticeProfile2.corpW9Number}}</span>
+                </div>
+			</div>
+        </div>
+        <ul>
+        {{#each FormSections.AdditionalCorporatePracticeProfile}}
+        <div class="mt-4">
+            <li style="font-weight: bold;" type="a"><span style="margin-left: 40px; font-weight: normal;">	<b>Additional Incorporated Practices Profile:</b> Mandatory Fields, if apply.</span></li>
+            <p class="mt-3 mb-4" style="text-align: justify; position: relative; right: 35px;">Please complete the information requested in each of the provided fields. Official documents considered as part of the list of credentials specified in the <b>Required Credentials and Documents List</b>, must be attached in the same order as the application. For your records, make sure to keep copies of any supporting documents.</p>
+        </div>
+        <div style="position: relative; right: 25px;">
+            <div class="row squared bordered" >
+                <div class="col">
+					<span class="lowered">Incorporated Practice Name: <span style="color:red;">SEE ABOVE</span>  {{this.additionalCorp2PracticeName}}
+					</span>
+                </div>
+			</div>
+            <div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Rendering NPI Number: {{this.additionalCorp2RenderingNPI}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Tax ID Number: {{this.additionalCorp2TaxIdNumber}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Specialty and Subspecialty: {{this.additionalCorp2PSpecSubSpec}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Tax ID Name, if apply: {{this.additionalCorp2aTaxIdName}}</span>
+                </div>
+			</div>
+			<div class="row limit-height bordered">
+                <div class="col-5">
+                    <span class="lowered">Incorporated Practice Physical Address: </span>
+                </div>
+                <div class="col-7" style="line-height: 1.2;">
+                    <p>{{this.additionalCorp2PracticePhys}}</p>
+                </div>
+			</div>
+			<div class="row limit-height bordered">
+                <div class="col-5">
+                    <span class="lowered">Incorporated Practice Mailing Address: </span>
+                </div>
+                <div class="col-7" style="line-height: 1.2;">
+                    <p>{{this.additionalCorp2ProvMailAddres}}</p>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Incorporated Entity Contact Phone Number: {{this.additionalCorp2ProvPhoneNum}}</span>
+                </div>
+			</div>
+			<div class="row limit-height bordered">
+                <div class="col-4">
+                    <span class="lowered">Employer ID Physical Address: </span>
+                </div>
+                <div class="col-8" style="line-height: 1.2;">
+                    <p>{{this.additionalCorp2EmployerIdPhys}}</p>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Entity Type: {{this.additionalCorp2EntityType}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">W-9: {{this.additionalCorp2W9Number}}</span>
+                </div>
+			</div>
+        </div>
+    
+        {{/each}}
+    </ul>
+        <div class="mt-4">
+            <span><b>III.&emsp;	Primary Care Physician (PCP) contract.</b> Mandatory Fields, if apply.</span>
+            <p class="mt-3 mb-4" style="text-align: justify;">Please complete the information requested in each of the provided fields. Official documents considered as part of the list of credentials specified in the <b>Required Credentials and Documents List</b>, must be attached in the same order as the application. For your records, make sure to keep copies of any supporting documents.</p>
+        </div>
+        <div style="position: relative;left: 10px;">
+            <div class="row squared bordered" >
+                <div class="col">
+					<span class="lowered">Group Name or PMG Name: {{FormSections.PrimaryCarePhysicianPCP.pcpGroupName}}
+					</span>
+                </div>
+			</div>
+            <div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Billing NPI Number: {{FormSections.PrimaryCarePhysicianPCP.pcpBillingNPI}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Tax ID Group Number: {{FormSections.PrimaryCarePhysicianPCP.pcpTaxIdNumber}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Medicaid ID for this Location: {{FormSections.PrimaryCarePhysicianPCP.pcpMedicaidId}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">NPI Group Number: {{FormSections.PrimaryCarePhysicianPCP.pcpRenderingNPI}}</span>
+                </div>
+			</div>
+			<div class="row limit-height bordered">
+                <div class="col-3">
+                    <span class="lowered">Group Physical Address: </span>
+                </div>
+                <div class="col-9" style="line-height: 1.2;">
+                    <p>{{FormSections.PrimaryCarePhysicianPCP.pcpPhysicalAddress}}</p>
+                </div>
+			</div>
+			<div class="row limit-height bordered">
+                <div class="col-3">
+                    <span class="lowered">Group Mailing Address: </span>
+                </div>
+                <div class="col-9" style="line-height: 1.2;">
+                    <p>{{FormSections.PrimaryCarePhysicianPCP.pcpMailAddress}}</p>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">PMG Endorsement Letter Date: <span style="color: red;">+ Attachment</span> {{FormSections.PrimaryCarePhysicianPCP.pcpEndorsementDate}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Group Contact Phone Number: {{FormSections.PrimaryCarePhysicianPCP.pcpContactPhoneNum}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Group Employer ID Number: {{FormSections.PrimaryCarePhysicianPCP.pcpEmployerIdNum}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Group Email Address: {{FormSections.PrimaryCarePhysicianPCP.pcpEmail}}</span>
+                </div>
+			</div>
+			<div class="row limit-height bordered">
+                <div class="col-8">
+                    <p>PCP or Specialist: If PCP please specify: <span style="font-style: italic;">General Practice / Family Practice / Internal Medicine / Pediatrician/ OB </p>
+                </div>
+                <div class="col-1">
+                </div>
+                <div class="col-3">
+                    <p>{{FormSections.PrimaryCarePhysicianPCP.pcpSpecialist}}</p>
+                </div>
+			</div>
+            <div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Provider Specialty:  Please specify the specialty: <span style="font-style: italic;">Primary Care / or Specialty Care</span> &emsp; &emsp; {{FormSections.PrimaryCarePhysicianPCP.pcpProvSpecialty}}</span>
+                </div>
+			</div>
+            <div class="row bordered no-height">
+                <div class="col-5">
+                    <span class="less-lowered">VITAL Service Hours: Monday to Sunday / AM Hours / PM Hours </span>
+                </div>
+                <div class="col-7" style="line-height: 1.2;">
+                    <pre>{{FormSections.PrimaryCarePhysicianPCP.pcpVITALServHours}}</pre>
+                </div>
+			</div>
+        </div>
+        <div class="mt-4">
+            <span><b>IV.&emsp;	Federally Qualified Health Centers (330) Please complete</b> mandatory Fields for FQHC, <span style="color: red;">if apply</span></span>
+            <p class="mt-3 mb-4" style="text-align: justify;">Please complete the information requested in each of the provided fields. Official documents considered as part of the list of credentials specified in the <b>Required Credentials and Documents List</b>, must be attached in the same order as the application. For your records, make sure to keep copies of any supporting documents.</p>
+        </div>
+        <div style="position: relative;left: 10px;">
+            <div class="row squared bordered" >
+                <div class="col">
+					<span class="lowered">Group Name or PMG Name: {{FormSections.FederalQualifiedHealthCenter330.f330GroupName}}
+					</span>
+                </div>
+			</div>
+            <div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Billing NPI Number: {{FormSections.FederalQualifiedHealthCenter330.f330BillingNPI}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Tax ID Group Number: {{FormSections.FederalQualifiedHealthCenter330.f330TaxIdNumber}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Medicaid ID for this Location: {{FormSections.FederalQualifiedHealthCenter330.f330MedicaidId}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">NPI Group Number: {{FormSections.FederalQualifiedHealthCenter330.f330RenderingNPI}}</span>
+                </div>
+			</div>
+			<div class="row limit-height bordered">
+                <div class="col-3">
+                    <span class="lowered">Group Physical Address:</span>
+                </div>
+                <div class="col-9" style="line-height: 1.2;">
+                    <p>{{FormSections.FederalQualifiedHealthCenter330.f330PhysicalAddress}}</p>
+                </div>
+			</div>
+			<div class="row limit-height bordered">
+                <div class="col-3">
+                    <span class="lowered">Group Mailing Address:</span>
+                </div>
+                <div class="col-9" style="line-height: 1.2;">
+                    <p>{{FormSections.FederalQualifiedHealthCenter330.f330MailAddress}}</p>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">PMG Endorsement Letter Date, <span style="color: red;font-style: italic;">if apply</span>:  {{FormSections.FederalQualifiedHealthCenter330.f330EndorsementDate}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Group Contact Phone Number: {{FormSections.FederalQualifiedHealthCenter330.f330ContactPhoneNum}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Group Employer ID Number: {{FormSections.FederalQualifiedHealthCenter330.f330EmployerIdNum}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Group Email Address: {{FormSections.FederalQualifiedHealthCenter330.f330Email}}</span>
+                </div>
+			</div>
+			<div class="row limit-height bordered">
+                <div class="col-8">
+                    <p>PCP or Specialist: If PCP please specify: <span style="font-style: italic;">General Practice / Family Practice / Internal Medicine / Pediatrician/ OB </p>
+                </div>
+                <div class="col-1">
+                </div>
+                <div class="col-3">
+                    <p>{{FormSections.FederalQualifiedHealthCenter330.f330Specialist}}</p>
+                </div>
+			</div>
+            <div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Provider Specialty:  Please specify the specialty: <span style="font-style: italic;">Primary Care / or Specialty Care</span> &emsp; &emsp; {{FormSections.FederalQualifiedHealthCenter330.f330ProvSpecialty}}</span>
+                </div>
+			</div>
+            <div class="row no-height bordered">
+                <div class="col-5">
+                    <span class="less-lowered">VITAL Service Hours: Monday to Sunday / AM Hours / PM Hours </span>
+                </div>
+                <div class="col-7" style="line-height: 1.2;">
+                    <pre>{{FormSections.FederalQualifiedHealthCenter330.f330VITALServHours}}</pre>
+                </div>
+			</div>
+        </div>
+        <div class="mt-4">
+            <span style="margin-left: 40px;"><b>V.&emsp;	Hospital Affiliations:</b> Mandatory Fields, if apply.</span>
+            <p class="mt-3 mb-4" style="text-align: justify;">Please complete the information requested in each of the provided fields. Official documents considered as part of the list of credentials specified in the <b>Required Credentials and Documents List</b>, must be attached in the same order as the application. For your records, make sure to keep copies of any supporting documents.</p>
+        </div>
+        <div style="position: relative;left: 10px;">
+            <div class="row squared bordered" >
+                <div class="col">
+					<span class="lowered">Primary Hospital Name (1):  {{FormSections.HospitalAffiliations.Hospital1Affiliations.hosp1Name}}
+					</span>
+                </div>
+			</div>
+            <div class="row squared bordered">
+                <div class="col-10">
+                    <p class="lowered">Hospital Privileges Type: <span style="font-style: italic;">Active / Consulting Affiliate / Clinical / Courtesy / Temporary / Other</span> </p>
+                </div>
+                <div class="col-2">
+                    <p class="lowered">{{FormSections.HospitalAffiliations.Hospital1Affiliations.hosp1PrivType}}</p>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Hospital Privileges Effective Date:   Date (month/year) From:  {{FormSections.HospitalAffiliations.Hospital1Affiliations.hosp1PrivFrom}}        To: {{FormSections.HospitalAffiliations.Hospital1Affiliations.hosp1PrivTo}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Secondary Hospital Name (2): {{FormSections.HospitalAffiliations.Hospital2Affiliations.hosp2Name}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col-10">
+                    <p class="lowered">Hospital Privileges Type: <span style="font-style: italic;">Active / Consulting Affiliate / Clinical / Courtesy / Temporary / Other</span> </p>
+                </div>
+                <div class="col-2">
+                    <p class="lowered">{{FormSections.HospitalAffiliations.Hospital2Affiliations.hosp2PrivType}}</p>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Hospital Privileges Effective Date:  Date (month/year) From:   {{FormSections.HospitalAffiliations.Hospital2Affiliations.hosp2PrivFrom}}         To:{{FormSections.HospitalAffiliations.Hospital2Affiliations.hosp2PrivTo}}</span>
+                </div>
+			</div>
+        </div>
+        <div class="mt-4">
+            <span style="margin-left: 40px;"><b>VI. Education and Training:</b> Mandatory Fields, if apply.</span>
+            <p class="mt-2 mb-3" style="text-align: justify;">CV, Diplomas, Internships, Fellowships, Certificates, and Completed Continue Education Hours:
+            <br>
+            Please complete the information requested in each of the provided fields. Official documents considered as part of the list of credentials specified in the <b>Required Credentials and Documents List</b>, must be attached in the same order as the application. For your records, make sure to keep copies of any supporting documents.
+            </p>
+        </div>
+        <div style="position: relative;left: 10px;">
+            {{#each FormSections.EducationAndTraining.EducationSchool}}
+            <div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">MEDICAL/ PROFFESIONAL SCHOOL NAME:</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">School Name: {{this.eduSchoolName}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Address / Street: {{this.eduSchAddress}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">City / State / Zip Code: {{this.eduSchCityStZipCode}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Graduation Date (Month/Year) From: {{this.eduSchGradDateFrom}}   To: {{this.eduSchGradDateTo}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Specialty, Completion Date: Degree Received: {{this.eduSchSpecialty}}</span>
+                </div>
+			</div>
+            {{/each}}
+            {{#each FormSections.EducationAndTraining.EducationInternship}}
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Internship Institution Name: {{this.eduInternshipName}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Address / Street: {{this.eduInternshipAddress}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Dates Attended (Month/Year) From: {{this.eduInternshipFrom}}    To: {{this.eduInternshipTo}}</span>
+                </div>
+			</div>
+            <div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Program Type: {{this.eduIntProgramType}}</span>
+                </div>
+			</div>
+            {{/each}}
+            {{#each FormSections.EducationAndTraining.EducationResidency}}
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Residency: {{this.eduResidency}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Residency Institution Name: {{this.eduResidencyName}} </span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Address / Street: {{this.eduResidencyAddress}}</span>
+                </div>
+			</div>
+            <div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">City / State / Zip Code: {{this.eduResCityStZipCode}}</span>
+                </div>
+			</div>
+            <div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Dates Attended (Month/Year) From: {{this.eduResidencyFrom}}      To: {{this.eduResidencyTo}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Residence Type: {{this.eduResidencyType}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Residency Completion Date:  <span style="color:red">SEE ABOVE </span> {{this.eduResidencyComplDt}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Hospital Post- Graduate and Internship Completion Date: <span style="color:red">SEE ABOVE </span> {{this.eduResHospComplDt}}</span>
+                </div>
+			</div>
+            {{/each}}
+            {{#each FormSections.EducationAndTraining.EducationFellowship}}
+            <div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Fellowship: {{this.eduFellowship}}</span>
+                </div>
+			</div>
+            <div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Institution Name/ Graduate and Internship Completion Date: {{this.eduFellowshipName}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Address / Street: {{this.eduFellowshipAddres}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">City / State / Zip Code: {{this.eduFellowshipCity}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Dates Attended (Month/Year) From: {{this.eduFellowshipFrom}}      To: {{this.eduFellowshipTo}}</span>
+                </div>
+			</div>
+            <div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Fellowship Type: {{this.eduFellowshipType}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Fellowship/Training Completion Date: <span style="color: red;">SEE ABOVE</span> {{this.eduFellowshipComplDt}} </span>
+                </div>
+			</div>
+            {{/each}}
+            {{#each FormSections.EducationAndTraining.EducationBoard}}
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Board Certification: {{this.brdCertification}}</span>
+                </div>
+			</div>
+            <div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Specialty Board: {{this.brdSpecialty}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Specialty Board Certificate Issued Date: {{this.brdSpecialtyFrom}}</span>
+                </div>
+			</div>
+			<div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">Specialty Board Certificate Expiration Date: {{this.brdSpecialtyTo}}</span>
+                </div>
+			</div>
+            {{/each}}
+            <div class="row squared bordered">
+                <div class="col">
+                    <span class="lowered">PROFESSIONAL LICENCES/CERTIFICATES: </span>
+                </div>
+			</div>
+			<div class="row limit-height bordered">
+                <div class="col">
+                    <p>DEA Certificate:  YES / N/A   / License Number / Expiration Date (month/day/year)</p>
+                </div>
+                <div class="col">
+                    <p class="lowered">{{FormSections.LicenseAndCertification.LicenseDEA.licDEACert}} / {{FormSections.LicenseAndCertification.LicenseDEA.licDEALicenseNumber}} / {{FormSections.LicenseAndCertification.LicenseDEA.licDEAExpirationDate}} </p>
+                </div>
+			</div>
+			<div class="row limit-height bordered">
+                <div class="col">
+                    <p>State Narcotics License (ASSMCA):   YES / N/A   / License Number / Expiration Date (month/day/year)</p>
+                </div>
+                <div class="col">
+                    <p class="lowered">{{FormSections.LicenseAndCertification.LicenseASSMCA.licASSMCALicense}} / {{FormSections.LicenseAndCertification.LicenseASSMCA.licASSMCALicenseNumber}} / {{FormSections.LicenseAndCertification.LicenseASSMCA.licASSMCAExpirationDate}}</p>
+                </div>
+			</div>
+            <div class="row limit-height bordered">
+                <div class="col">
+                    <p>License Registration: YES / N/A   / License Number / Expiration Date (month/day/year)</p>
+                </div>
+                <div class="col">
+                    <p class="lowered">{{FormSections.LicenseAndCertification.LicenseMedical.licMedicalLicense}} / {{FormSections.LicenseAndCertification.LicenseMedical.licMedicalLicenseNumber}} / {{FormSections.LicenseAndCertification.LicenseMedical.licMedicalExpirationDate}}</p>
+                </div>
+			</div>
+			<div class="row limit-height bordered">
+                <div class="col">
+                    <p>Collegiate Membership Name 1:  Collegiate YES / N/A   / License Number / Expiration Date (month/day/year)</p>
+                </div>
+                <div class="col">
+                    <p class="lowered">{{FormSections.LicenseAndCertification.LicenseCollegiateMembership.licCollegiateMemberName}} / {{FormSections.LicenseAndCertification.LicenseCollegiateMembership.licCollegiateMemberLicenseNumber}} / {{FormSections.LicenseAndCertification.LicenseCollegiateMembership.licCollegiateMemberExpirationDate}}</p>
+                </div>
+			</div>
+			<div class="row limit-height bordered">
+                <div class="col">
+                    <p>PTAN Number (Medicare Program): YES / N/A   / License Number / Expiration Date (month/day/year)</p>
+                </div>
+                <div class="col">
+                    <p class="lowered">{{FormSections.LicenseAndCertification.LicensePTAN.licPTANProgram}} / {{FormSections.LicenseAndCertification.LicensePTAN.licPTANLicenseNumber}} / {{FormSections.LicenseAndCertification.LicensePTAN.licPTANExpirationDate}}</p>
+                </div>
+			</div>
+            <div class="row limit-height bordered">
+                <div class="col">
+                    <p>Telemedicine Certificate YES / N/A   / License Number / Expiration Date (month/day/year)</p>
+                </div>
+                <div class="col">
+                    <p class="lowered">{{FormSections.LicenseAndCertification.LicenseTelemedicine.LicenseTelemedicineCert}} / {{FormSections.LicenseAndCertification.LicenseTelemedicine.LicenseTelemedicineLicenseNumber}} / {{FormSections.LicenseAndCertification.LicenseTelemedicine.LicenseTelemedicineExpirationDate}}</p>
+                </div>
+			</div>
+        </div>
+
+        <div class="mt-4">
+            <span style="margin-left:40px;"><b>VII. Criminal Record:</b></span>
+            <p class="mt-3 mb-4" style="text-align: justify;">Please complete the information requested in each of the provided fields. Official documents considered as part of the list of credentials specified in the <b>Required Credentials and Documents List</b>, must be attached in the same order as the application. For your records, make sure to keep copies of any supporting documents.</p>
+        </div>
+        <div style="position: relative;left: 10px;">
+            <div class="row squared bordered" >
+                <div class="col">
+					<span class="lowered">Negative Certificate of Penal Records Date:  {{FormSections.NegativeCertificatePenalRecordDate.negCertPenalRecDate}}
+					</span>
+                </div>
+			</div>
+        </div>
+        <div class="mt-4">
+            <span style="margin-left:40px;"><b>VIII. 	Malpractice and Professional Liability Insurance:</b> Mandatory Fields and Documentation, if apply.</span>
+            <span style="margin-left:40px;">       (Professional Liability Insurance can include office personnel)</span>
+            <p class="mt-3 mb-4" style="text-align: justify;">Please complete the information requested in each of the provided fields. Official documents considered as part of the list of credentials specified in the <b>Required Credentials and Documents List</b>, must be attached in the same order as the application. For your records, make sure to keep copies of any supporting documents.</p>
+        </div>
+        <div style="position: relative;left: 10px;">
+            <div class="row squared bordered" >
+                <div class="col">
+					<span class="lowered">Malpractice Policy Current Insurance Carrier Name: {{FormSections.Malpractice.malpCarrierName}}
+					</span>
+                </div>
+			</div>
+            <div class="row squared bordered" >
+                <div class="col">
+					<span class="lowered">Malpractice Insurance Policies Effective Date: Effective Date (month/day/year): From: {{FormSections.Malpractice.malpEffectiveFrom}}  To: {{FormSections.Malpractice.malpEffectiveTo}}</span>
+                </div>
+			</div>
+            <div class="row squared bordered" >
+                <div class="col">
+					<span class="lowered">Malpractice Policy Number: {{FormSections.Malpractice.malpPolicyNum}}
+					</span>
+                </div>
+			</div>
+            <div class="row limit-height bordered" >
+                <div class="col-7">
+					<span class="lowered">Malpractice Coverage Amount: Per Occurrence/Aggregate Limit: </span> 
+                </div>
+                <div class="col-5">
+                    <p>{{FormSections.Malpractice.malpCoverageAmt.malpPerOccurrence}} / {{FormSections.Malpractice.malpCoverageAmt.malpAggregateLimit}}</p>
+                </div>
+			</div>
+            <div class="row squared bordered" >
+                <div class="col" style="text-align: center;color: red;">
+					<span style="font-size: 16pt;font-family: Cambria;">Professional Liability Action Explanation Form (include) 
+					</span>
+                </div>
+			</div>
+            <div class="row squared bordered" >
+                <div class="col">
+					<span class="lowered">Malpractice Information OIG Case Number, if apply: {{FormSections.Malpractice.malpOIGCaseNum}}
+					</span>
+                </div>
+			</div>
+            <div class="row squared bordered" >
+                <div class="col">
+					<span class="lowered">Professional Liability Policy Current Insurance Carrier Name: {{FormSections.ProfessionalLiability.profLCarrierName}}
+					</span>
+                </div>
+			</div>
+            <div class="row squared bordered" >
+                <div class="col">
+					<span class="lowered">Professional Liability Policy Number: {{FormSections.ProfessionalLiability.profLPolicyNum}}
+					</span>
+                </div>
+			</div>
+            <div class="row limit-height bordered" >
+                <div class="col-8">
+					<span class="lowered">Professional Liability Coverage Amount: Per Occurrence/Aggregate Limit </span>
+                </div>
+                <div class="col-4">
+                    <p>{{FormSections.ProfessionalLiability.profLCoverageAmt.profLPerOccurrence}} / {{FormSections.ProfessionalLiability.profLCoverageAmt.profLAggregateLimit}}</p>
+                </div>
+			</div>
+            <div class="row squared bordered">
+                <div class="col">
+					<span class="lowered">Professional Liability Insurance Policies Effective Date: Effective Date (mm/dd/yyyy):  From: {{FormSections.ProfessionalLiability.profLEffectiveFrom}}  To: {{FormSections.ProfessionalLiability.profLEffectiveTo}}</span>
+                </div>
+			</div>
+            <div class="row squared2 bordered" >
+                <div class="col">
+					<p style="text-align: justify;">Self-Reported Information: Disclosure of actions, license changes, or any action against the license under ASSMCA or DEA license during a governmental contract or program. Investigations or actions under the Professional Liability Policy. <b><span style="font-style: italic;">Please, refer to the Required Credentials and Documents List Section- Reference Section 9- Redirigir a los links-</span></b>
+                    </p>
+                </div>
+			</div>
+            <div class="row squared2 bordered" >
+                <div class="col">
+					<p style="text-align: justify;"><span style="color: red;">***</span>Professional Service Contract Disclosure: For services over $25,000 for the past 12 months. Please, attach documentation and project description in the field provided for that purpose, including Effective and Expiration dates of the contract.<b><span style="font-style: italic;">Please, refer to the Required Credentials and Documents List Section</span></b>
+                    </p>
+                </div>
+			</div>
+            <div class="row squared2 bordered" >
+                <div class="col">
+					<p style="text-align: justify;"><span style="color: red;">***</span>Management Employees Information: For Medicaid purposes, formularies are individually provided by the office. <b><span style="font-style: italic;">Please, refer to the Required Credentials and Documents List Section</span></b>
+                    </p>
+                </div>
+			</div>
+            <div class="row squared2 bordered" >
+                <div class="col">
+					<p style="text-align: justify;"><span style="color: red;">***</span>Business Ownership Participation: Every member with no less than 5% of equity. Executive Officer, Director, and/or Managing Member of the entity defined by its category. <b><span style="font-style: italic;">Please, refer to the Required Credentials and Documents List Section</span></b>
+                    </p>
+                    <p style="color: red;" class="mt-1"><b>Add list of questions, in case of denied license- VITAL- hacer la nota para redirigir el médico</b></p>
+                </div>
+			</div>
+        </div>
+        <div class="mt-4">
+            <span style="margin-left:40px;"><b>IX.	Additional Directory Required Information: </b> Mandatory Fields and Documentation, if apply.</span>
+            <p class="mt-3 mb-4" style="text-align: justify;">Please complete the information requested in each of the provided fields. Official documents considered as part of the list of credentials specified in the <b>Required Credentials and Documents List</b>, must be attached in the same order as the application. For your records, make sure to keep copies of any supporting documents.</p>
+        </div>
+        <div style="position: relative;left: 10px;">
+            <div class="row squared bordered" >
+                <div class="col">
+					<span class="lowered">Individual or Corporate Name Update: {{FormSections.AdditionalDirectory.adddirName}}
+					</span>
+                </div>
+			</div>
+            <div class="row squared bordered" >
+                <div class="col">
+                    <span class="lowered">Physical Address Update: </span>
+                </div>
+                <div class="col">
+                    <p>{{FormSections.AdditionalDirectory.adddirAddress}}</p>
+                </div>
+			</div>
+            <div class="row squared bordered" >
+                <div class="col">
+					<span class="lowered">Email Update: {{FormSections.AdditionalDirectory.adddirEmail}}
+					</span>
+                </div>
+			</div>
+            <div class="row squared bordered" >
+                <div class="col">
+                    <span class="lowered">Mailing Address Update: </span>
+                </div>
+                <div class="col">
+                    <p>{{FormSections.AdditionalDirectory.adddirMailAddrs}}</p>
+                </div>
+			</div>
+            <div class="row squared bordered" >
+                <div class="col">
+					<span class="lowered">Office Phone Number Update: {{FormSections.AdditionalDirectory.adddirPhone}}
+					</span>
+                </div>
+			</div>
+            <div class="row squared bordered" >
+                <div class="col">
+					<span class="lowered">Facilities adapted to Disabled Patients: {{FormSections.AdditionalDirectory.adddirFacDisability}}
+					</span>
+                </div>
+			</div>
+            <div class="row squared bordered" >
+                <div class="col">
+					<span class="lowered">New Patients Acceptance: {{FormSections.AdditionalDirectory.adddirAcceptNewPat}}
+					</span>
+                </div>
+			</div>
+            <div class="row squared bordered" >
+                <div class="col">
+					<span class="lowered">NPI Changes: {{FormSections.AdditionalDirectory.adddirNPI}}
+					</span>
+                </div>
+			</div>
+            <div class="row squared bordered" >
+                <div class="col">
+					<span class="lowered">Practice Transfer or Practice Closed: {{FormSections.AdditionalDirectory.adddirTransfClose}}
+					</span>
+                </div>
+			</div>
+            <div class="row squared bordered" >
+                <div class="col">
+					<span class="lowered">Office Practice Hours: {{FormSections.AdditionalDirectory.adddirOfficeHours}}
+					</span>
+                </div>
+			</div>
+            <div class="row squared bordered" >
+                <div class="col">
+					<span class="lowered">New Affiliations: {{FormSections.AdditionalDirectory.adddirNewAffiliat}}
+					</span>
+                </div>
+			</div>
+            <div class="row squared bordered" >
+                <div class="col">
+					<span class="lowered">New Practice Associations: {{FormSections.AdditionalDirectory.adddirNewPractice}}
+					</span>
+                </div>
+			</div>
+            <div class="row squared bordered" >
+                <div class="col">
+					<span class="lowered">New Billing Information: 
+					</span>
+                </div>
+			</div>
+            <div class="row squared bordered" >
+                <div class="col">
+					<span class="lowered">Practice moved more than five (5) miles: {{FormSections.AdditionalDirectory.adddirPractiveMove}}
+					</span>
+                </div>
+			</div>
+            <div class="row squared bordered" >
+                <div class="col">
+					<span class="lowered">Plan Acceptance List: {{FormSections.AdditionalDirectory.adddirPlanAccepted}}
+					</span>
+                </div>
+			</div>
+        </div>
+        <div class="mt-4">
+            <span style="margin-left:40px;"><b>Required Credentials and Documents List: </b>All documents should be attached in the same order as the application.</span>
+            <p class="mt-3 mb-3" style="margin-left:40px;text-align: justify;">All the required credentials listed below must be current. Future dated or expired credentials will cause your application to be returned by the covered entity authorized to collect your information. All attachments must be recent, complete, and readable. For your records, make sure to keep copies of any supporting documents.</p>
+        </div>
+        <ol style="font-family: 'Times New Roman', Times, serif; font-size: 11.335ptpt; margin-left:40px;">
+            <li>Individual and Incorporated Provider Credentialing Application </li>
+            <li>NPI Certificate/Letter</li>
+            <li>Tax ID Certificate- Individual or Corporate</li>
+            <li>Employer ID Certificate/IRS Letter</li>
+            <li>W9, if apply</li>
+            <li>Corporation Certificate, if apply</li>
+            <li>Medical License</li>
+            <li>School of Medicine Diploma/ Residency Certificate</li>
+            <li>Specialty and Subspecialty Diploma, if apply</li>
+            <li>Board Certificate</li>
+            <li>Curriculum Vitae- Five (5) years, Provide an explanation of any gaps of six (6) months or more</li>
+            <li>DEA Certificate</li>
+            <li>ASSMCA Certificate</li>
+            <li>Past and Completed Continue Education Certificate</li>
+            <li>Malpractice Insurance Certificated of Coverage and Endorsements</li>
+            <li>Professional Liability Insurance Certificated of Coverage</li>
+            <li>Professional Liability Action Explanation Form</li>
+            <li>Attestation</li>
+            <li>Disclosure of Authorization, Ownership & Control Interest (42 CFR 455.104)</li>
+            <li>Significant Business Transactions (42 CFR 455.105)</li>
+            <li>Excluded Individuals or Entities (42 CFR 455.106) </li>
+            <li>Negative Certificate of Penal Record</li>
+            <li>Non-Prescriber Narcotics Letter</li>
+            <li>Re-credentialing Junta de Licenciamiento Card </li>
+            <li>IPA or PMG Endorsement Letter, if apply</li>
+            <li>Medicaid Letter (Medicaid ID)</li>
+            <li>Medicare Letter (PTAN)</li>
+            <li>Self-Reported Information- Case Track number</li>
+            <li>Professional Service Contract Disclosure-Yes or No.</li>
+            <li>Management Employees Information- Attach updated list, company’s role, and effective date.</li>
+            <li>Business Ownership Participation- Corporation by Laws from the Department of State, if apply</li>
+            <li>Colegio de Cirujanos Médicos Affiliation (Colegiación)</li>
+        </ol>
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+</body>
+</html>

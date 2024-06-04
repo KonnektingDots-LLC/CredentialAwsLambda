@@ -1,0 +1,29 @@
+/*
+      www.OnlineWebFonts.Com 
+      You must credit the author Copy this link on your web 
+      <div>Font made from <a href="http://www.onlinewebfonts.com/fonts">Web Fonts</a>is licensed by CC BY 4.0</div>
+      OR
+      <a href="http://www.onlinewebfonts.com/fonts">Web Fonts</a>
+
+      CSS link
+
+      <link href="https://db.onlinewebfonts.com/c/029177df870cce2b384f0610a6e1f82a?family=Montserrat+Light" rel="stylesheet" type="text/css"/>
+
+      CSS rules to specify fonts
+
+      font-family: "Montserrat Light";;
+
+*/
+
+@font-face{
+    font-family: "Montserrat Light";
+    src: url("./montserrat/029177df870cce2b384f0610a6e1f82a.eot");
+    src: url("./montserrat/029177df870cce2b384f0610a6e1f82a.eot?#iefix")format("embedded-opentype"),
+        url("./montserrat/029177df870cce2b384f0610a6e1f82a.woff")format("woff"),
+        url("./montserrat/029177df870cce2b384f0610a6e1f82a.woff2")format("woff2"),
+        url("./montserrat/029177df870cce2b384f0610a6e1f82a.ttf")format("truetype");
+    font-weight:normal;
+    font-style:normal;
+    font-display:swap;
+}
+ 
